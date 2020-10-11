@@ -108,7 +108,7 @@ def hex_distance(a, b):
 
 def discoverSurroundingHexes(h, discovered_hexes):
     neighbors = hex_neighbors(h)
-    neighbors = [n for n in neighbors if n not in discovered_hexes and hex_distance(Hex(0, 0, 0), h) < map_size]
+    neighbors = [n for n in neighbors if n not in discovered_hexes and hex_distance(Hex(0, 0, 0), h) <= map_size]
     if h not in discovered_hexes:
         a = 'H'
         discovered_hexes[h] = a
@@ -177,7 +177,7 @@ if __name__ == "__main__":
     donny = turtle.Turtle()
     donny.speed(0)
     donny.ht()
-    hexes = discoverSurroundingHexes(Hex(0,0,0), dict())
+    hexes = discoverSurroundingHexes(Hex(6, -3, -3), dict())
     for hex in hexes:
         drawHex(hex, hexes)
     turtle.mainloop()
